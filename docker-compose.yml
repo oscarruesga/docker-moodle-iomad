@@ -21,7 +21,7 @@ services:
         networks:
             - backendDB
     moodleapp:
-        image: oscarruesga/moodle-iomad:4.0
+        image: oscarruesga/moodle-iomad:latest
         links:
             - dbapp:DB
         logging:
