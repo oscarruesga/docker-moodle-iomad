@@ -34,7 +34,7 @@ RUN apt-get clean autoclean && apt-get autoremove -y && rm -rf /var/lib/apt/list
 
 RUN mkdir -p /tmp/iomad && \
 	cd /tmp/iomad && \
-	git clone https://github.com/iomad/iomad.git --branch IOMAD_${IOMAD_VERSION}_STABLE --depth=1 . && \
+	git clone https://github.com/oscarruesga/iomad.git --branch IOMAD_${IOMAD_VERSION}_STABLE --depth=1 . && \
 	mv /tmp/iomad/* /var/www/html/ && \
 	rm /var/www/html/index.html && \
 	chown -R www-data:www-data /var/www/html
