@@ -44,8 +44,8 @@ In the following steps, replace MOODLE_URL with your appropriate FQDN.
 
 * Deploy With Docker
 ```
-docker run -d --name DB -p 3306:3306 -e MYSQL_DATABASE=moodle -e MYSQL_ROOT_PASSWORD=moodle -e MYSQL_USER=moodle -e MYSQL_PASSWORD=moodle mysql:5
-docker run -d -P --name moodle --link DB:DB -e MOODLE_URL=http://moodle.company.com -p 80:80 smezei/moodle-iomad
+docker run -d --name DB -p 3306:3306 -e MYSQL_DATABASE=moodle -e MYSQL_ROOT_PASSWORD=moodle -e MYSQL_USER=moodle -e MYSQL_PASSWORD=mariadb:latest
+docker run -d -P --name moodle --link DB:DB -e MOODLE_URL=http://moodle.company.com -p 80:80 oscarruesga/moodle-iomad:latest
 ```
 
 * Deploy with Docker Compose
@@ -71,4 +71,3 @@ The following aren't handled, considered, or need work:
 ## Credits
 
 This is a fork of Smezei's](https://github.com/smezei/docker-moodle-iomad) Dockerfile.
-
