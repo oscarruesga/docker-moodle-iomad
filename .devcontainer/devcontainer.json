@@ -1,0 +1,42 @@
+// See https://aka.ms/vscode-remote/devcontainer.json for format details.
+{
+	"name": "IOMAD Develop",
+	"dockerComposeFile": "../docker-compose.yml",
+	"service": "moodleapp",
+	"workspaceFolder": "/var/www/html",
+
+	"shutdownAction": "stopCompose",
+		
+	// Uncomment the next line if you want to publish any ports.
+	// "appPort": [],
+
+	// Uncomment the next line if you want to add in default container specific settings.json values
+	"settings":  { 
+		"workbench.colorTheme": "Monokai",
+		"terminal.integrated.shell.linux": "/bin/bash"
+	},
+
+	// Uncomment the next line to run commands after the container is created.
+	// "postCreateCommand": "php -v",
+
+	"extensions": [
+		"imgildev.vscode-moodle-snippets",
+		"MateuszLesiak.vscode-moodle-snippets",
+		"xdebug.php-debug",
+		"DEVSENSE.phptools-vscode",
+		"bmewburn.vscode-intelephense-client",
+		"ms-azuretools.vscode-docker",
+		"donjayamanne.githistory",
+		"marabesi.php-import-checker",
+		"rifi2k.format-html-in-php",
+		"ecmel.vscode-html-css",
+		"DavidAnson.vscode-markdownlint",
+		"ikappas.phpcs",
+		"mblode.twig-language-2",
+		"redhat.vscode-yaml",
+		"dawhite.mustache",
+		"mikestead.dotenv",
+		"donjayamanne.git-extension-pack",
+		"eamodio.gitlens"
+	]
+}

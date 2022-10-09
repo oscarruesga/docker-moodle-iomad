@@ -1,23 +1,34 @@
-version: '3'
+version: '3.9'
 
 services:
     dbapp:
-        image: mysql:5
+        image: mariadb:latest
+        command: >
+                --character-set-server=utf8mb4
+                --collation-server=utf8mb4_bin
+                --innodb_file_per_table=On
+                --wait-timeout=28800
         restart: always
+        logging:
+            driver: "json-file"
+            options:
+                max-file: 5
+                max-size: 10m
         volumes:
             - db-volume:/var/lib/mysql
         env_file:
             - moodle_variables.env
         networks:
             - backendDB
-        deploy:
-            replicas: 1
-            restart_policy:
-                condition: any
     moodleapp:
-        image: jhardison/moodle:latest
+        build: .
         links:
             - dbapp:DB
+        logging:
+            driver: "json-file"
+            options:
+                max-file: 5
+                max-size: 10m
         depends_on: 
             - dbapp
         restart: always
@@ -31,11 +42,6 @@ services:
         networks:
             - backendDB
             - frontendWEB
-        deploy:
-            replicas: 1
-            restart_policy:
-                condition: any            
-
 volumes: 
     db-volume:
     moodleapp-data:

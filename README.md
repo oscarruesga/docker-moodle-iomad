@@ -1,24 +1,19 @@
 docker-moodle-iomad
 ===================
-[![Build Status](https://dev.azure.com/jmhardison/Docker%20Moodle/_apis/build/status/jmhardison.docker-moodle?branchName=master)](https://dev.azure.com/jmhardison/Docker%20Moodle/_build/latest?definitionId=1) [![](https://images.microbadger.com/badges/image/jhardison/moodle.svg)](https://microbadger.com/images/jhardison/moodle "Get your own image badge on microbadger.com")
 
-A Dockerfile that installs and runs the latest Moodle 3.57 stable, with Iomad and external MySQL Database.
+A Dockerfile that installs and runs the  IOMAD  stable, with Iomad and external MySQL Database.
 
 
 `Note: DB Deployment uses version 5.7 of MySQL. MySQL:Latest is now v8.`
 
 Tags:
-* latest - 3.5 stable
-* v3.5 - 3.5 stable
-* v3.4 - 3.4 stable
-* v3.3 - 3.3 stable
-* v3.2 - 3.2 stable
-* v3.1 - 3.1 stable
+* latest - 4.0 stable
+* v3.9 - 3.9 stable
 
 ## Installation
 
 ```
-git clone https://github.com/jmhardison/docker-moodle
+git clone https://github.com/oscarruesga/docker-moodle-iomad
 cd docker-moodle
 docker build -t moodle .
 ```
@@ -33,13 +28,13 @@ To spawn a new instance of Moodle:
 
 ```
 docker run -d --name DB -p 3306:3306 -e MYSQL_DATABASE=moodle -e MYSQL_ROOT_PASSWORD=moodle -e MYSQL_USER=moodle -e MYSQL_PASSWORD=moodle mysql:5.7
-docker run -d -P --name moodle --link DB:DB -e MOODLE_URL=http://localhost:8080 -p 8080:80 smezei/moodle-iomad
+docker run -d -P --name moodle --link DB:DB -e MOODLE_URL=http://localhost smezei/moodle-iomad
 ```
 
 You can visit the following URL in a browser to get started:
 
 ```
-http://localhost:8080 
+http://localhost
 ```
 
 ### Production Deployment
@@ -57,7 +52,7 @@ docker run -d -P --name moodle --link DB:DB -e MOODLE_URL=http://moodle.company.
 
 Pull the latest source from GitHub:
 ```
-git clone https://github.com/smezei/docker-moodle-iomad.git
+git clone https://github.com/oscarruesga/docker-moodle-iomad
 ```
 
 Update the `moodle_variables.env` file with your information. Please note that we are using v3 compose files, as a stop gap link env variable are manually filled since v3 no longer automatically fills those for use.
@@ -75,5 +70,5 @@ The following aren't handled, considered, or need work:
 
 ## Credits
 
-This is a fork of JHardison's](https://github.com/jmhardison/docker-moodle.git) Dockerfile.
+This is a fork of Smezei's](https://github.com/smezei/docker-moodle-iomad) Dockerfile.
 
