@@ -13,7 +13,7 @@ ENV DEBIAN_FRONTEND noninteractive
 # Set ENV Variables externally Moodle_URL should be overridden.
 ENV MOODLE_URL http://127.0.0.1
 
-ENV IOMAD_VERSION 39
+ENV IOMAD_VERSION 400
 
 # Enable when using external SSL reverse proxy
 # Default: false
